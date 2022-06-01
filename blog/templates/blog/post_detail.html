@@ -7,7 +7,21 @@
                 {{ post.published_date }}
             </div>
         {% endif %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <div class='edit-block'>
+            <div>
+                <h2>{{ post.title }}</h2>
+            </div>
+            <div>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
+                        <i class="bi bi-pencil-square" style="font-size: 2rem; 
+                color: #E44816;"></i>
+                    </a>
+                {% endif %}    
+            </div> 
+        </div>
+        <div>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
     </div>
 {% endblock %}
