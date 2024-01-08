@@ -16,8 +16,16 @@
                 </div>
                 <div>
                     {% if user.is_authenticated %}
+                        <a class="btn btn-default" href="{% url 'post_draft_list' %}">
+                            <i class="bi bi-pencil-square" style="font-size: 2rem; color: #E44816;"></i>
+                        </a>
                         <a class="btn btn-default" href="{% url 'post_new' %}" class="top-menu">
-                            <i class="bi bi-file-earmark-plus" style="font-size: 2rem; color: #16E448;"></i>
+                            <i class="bi bi-plus-circle" style="font-size: 2rem; color: #16E448;"></i>
+                        </a>
+                        <p class="top-menu">Hello, {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+                    {% else %}
+                        <a class="btn btn-default" href="{% url 'login' %}" class="top-menu">
+                            <i class="bi bi-shield-lock" style="font-size: 2rem; color: #16E448;"></i>
                         </a>
                     {% endif %}
                 </div>
